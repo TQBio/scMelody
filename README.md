@@ -20,4 +20,60 @@ This step is implemented in the R environment and is mainly used to calculate ce
     chrY     56770241            1
     
 
-Run "source()"
+Run the following instruction to get the similarity matrix by parallel calculation.
+
+    source('./PiarwiseSimilarity.R')
+    
+    cl <- makeCluster(8) 
+    
+    clusterExport(cl,"mat_F",envir = environment())
+    
+    results <- parLapply(cl,1:length(data_list),get_res,data_list) #data_list:single-cell methylation profiles organized as above
+        
+    stopCluster(cl)
+    
+    res_cor <- do.call(cbind,results)
+
+
+## 2 Perform spectral clustering to generate initial results
+
+This step is implemented in the python environment and is mainly used to produce clustering assignments for different similarity matrices and number of clusters. Here, the subsequent flow is demonstrated using the pre-calculated similarity matrices from the gse87197 dataset as an example.
+
+Load all functions in "Individual_clust.py" and similarity matrices files {Cosine_Mat.csv,Hamming_Mat.csv,Pearson_Mat.csv} in python environment; 
+
+    K_clust = find_kcluster(k_min,k_max,Cosine_Mat,Hamming_Mat,Pearson_Mat) #k_min,k_max represents the minimum and maximum number of possible clusters;
+
+After getting the optimal cluster number k_opt from K_clust, implement spectral clustering and calculate corresponding weights;
+
+    sc_cosine = sc_pre(Cosine_Mat, k_opt) # spectral clustering assignments of Cosine similarity measure.
+    
+    sc_hamming = sc_pre(Cosine_Mat, k_opt) # spectral clustering assignments of Hamming similarity measure.
+    
+    sc_pearson = sc_pre(Cosine_Mat, k_opt) # spectral clustering assignments of Pearson similarity measure.
+ 
+    weight_SIL = weight_sil(Cosine_Mat,Hamming_Mat,Pearson_Mat,sc_cosine, sc_hamming, sc_pearson) # get weights for spectral clustering results defined by silhouette coefficient.
+    
+    weight_PNMI = weight_PNMI(sc_cosine, sc_hamming, sc_pearson)  # get weights for spectral clustering results defined by pairwise NMI.
+    
+Save the spectral clustering results of and the corresponding weights in the dataframe las CSV files. 
+
+    spc = merge_clus(sc_cosine, sc_hamming, sc_pearson,weight_SIL,weight_PNMI)
+    
+    spc.to_csv('spc.csv')
+    
+## 3 Ensemble clustering
+
+This step is implemented in the R environment and is mainly used to calculate the co-association matrix and the finall hierarchical clustering results.
+  
+     df_clus <- read.csv(file = 'spc.csv',header = T) #load spectral clustering results and the corresponding weights
+     
+     source('./Ensemble.R')
+     
+     co_associationMat <- Get_CAMat(df_clus) #calculate the co-association matrix
+     
+     pre_cluster <- cutree(hclust(co_associationMat),k_opt) #output the final cluster assignments 
+        
+
+If you have any questions in use, please feel free to give me feedback. You can use the following contact information to communicate with me.
+
+Email: tqglowing@std.uestc.edu.cn
