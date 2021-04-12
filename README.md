@@ -73,6 +73,22 @@ This step is implemented in the R environment and is mainly used to calculate th
      
      pre_cluster <- cutree(hclust(co_associationMat),k_opt) #output the final cluster assignments 
         
+## 4 Performance evaluation
+
+This step is used to evaluate clustering performance between the truth and the prediction. It also includes visualization process for UMAP and hierarchical clustering heatmap.
+
+Calculate ARI and V-measure in python. Load the functions in "results_analysis.txt".
+
+     ARI1 = ARI(true_label, pre_cluster)
+     
+     V_measure1 = V_measure(true_label, pre_cluster)
+     
+Using UMAP and hierarchical clustering for visualization. Load the functions in "results_analysis.txt".
+
+     UMAP_GSE87197 <- UMAP_plot(co_associationMat,true_label,"GSE87197")
+     
+     HC_heatmapGSE87197 <- hc_heatmap(co_associationMat)
+
 
 If you have any questions in use, please feel free to give me feedback. You can use the following contact information to communicate with me.
 
