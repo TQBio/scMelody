@@ -1,6 +1,3 @@
-library(pheatmap)
-library(diceR)
-library(Nbclust)
 library(diceR)
 library(stats)
 
