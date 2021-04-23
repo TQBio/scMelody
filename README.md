@@ -40,7 +40,7 @@ Run the following instruction to get the similarity matrix by parallel calculati
 
 ## 2 Perform spectral clustering to generate initial results
 
-This step is implemented in the python environment and is mainly used to produce spectral clustering assignments for different similarity matrices and estimate the optimal number of clusters. 
+This step is implemented in the python environment and is mainly used to produce spectral clustering assignments for different similarity matrices and estimate the optimal number of clusters. Note that scMelody also provides source code of implementing spectral clustering in R, see file Spectral_clusR.r in the scMelody.
 
 Load all functions in "Individual_clust.py" and your pre-computed similarity matrices files in python environment; 
 
