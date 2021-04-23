@@ -104,7 +104,7 @@ Using the co-association matrix for real GSE87197 as an example.
      
      co-associationMat <- read.csv(file = 'coassMat_GSE87197.csv', header=F)
      
-     UMAP_GSE87197 <- UMAP_plot(co-associationMat,cell_label,"GSE87197")
+     UMAP_GSE87197 <- UMAP_plot(co-associationMat,cell_label)
      
      HC_heatmapGSE87197 <- hc_heatmap(co-associationMat)
 
