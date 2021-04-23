@@ -88,7 +88,7 @@ This step is implemented in the R environment and is mainly used to calculate th
 
 This step is used to evaluate clustering performance between the truth and the prediction. 
 
-Calculate ARI and V-measure in python. Load the corresponding functions in "results_analysis.txt" in python.
+Calculate ARI and V-measure in python. Load the corresponding functions in "Perforamce_evaluation.py" in python.
 
      ARI_score = ARI(true_label, pre_cluster)
      
@@ -96,7 +96,7 @@ Calculate ARI and V-measure in python. Load the corresponding functions in "resu
      
 ## 5 Visualization of the co-association matrix
      
-Using UMAP and hierarchical clustering for visualization. Here, the co-association matrix obtained by scMelody for real data GSE87197 is provided as a in Demo_data file. Load the corresponding functions in "results_analysis.txt" in R.
+Using UMAP and hierarchical clustering for visualization. Here, the co-association matrix obtained by scMelody for real data GSE87197 is provided as a in Demo_data file. Load the corresponding functions in "Visualization.r" in R environment.
 
 Using the co-association matrix for real GSE87197 as an example.
 
