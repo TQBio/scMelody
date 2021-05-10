@@ -3,7 +3,7 @@ Here, we present scMelody, an ensemble clustering approach for single-cell methy
 
 ## The overview of scMelody
 
-![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/scMelody_PL2.png)
+
 
 # Tutorial
 Overview: all source code for implementing scMelody is included in this project, source_code file contains all the functions that will be used, after loading these functions, scMelody can be run following the tutorials. Implementation of scMelody requires both R and python running environments, note the configuration in different environments.
@@ -98,7 +98,7 @@ Calculate ARI and V-measure in python. Load the corresponding functions in "Perf
      
 Using UMAP and hierarchical clustering for visualization. Here, the co-association matrix obtained by scMelody for real data GSE87197 is provided as a in Demo_data file. Load the corresponding functions in "Visualization.r" in R environment.
 
-Using the co-association matrix for real GSE87197 as an example.
+Using the co-association matrix for real dataset GSE87197 as an example.
 
      cell_label <- read.csv(file = 'celllabels_GSE87197.csv')
      
