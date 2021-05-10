@@ -3,7 +3,7 @@ Here, we present scMelody, an ensemble clustering approach for single-cell methy
 
 ## The overview of scMelody
 
-
+![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/Fig1.png)
 
 # Tutorial
 Overview: all source code for implementing scMelody is included in this project, source_code file contains all the functions that will be used, after loading these functions, scMelody can be run following the tutorials. Implementation of scMelody requires both R and python running environments, note the configuration in different environments.
