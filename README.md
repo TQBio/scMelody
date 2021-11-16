@@ -109,7 +109,7 @@ Using the co-association matrix for real dataset GSE87197 as an example.
 
 Hierarchical clustering heatmap:
 
-![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/bd_hc1.png)
+![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/Heatmap_of_gse87197.png)
 
 
 If you have any questions in use, please feel free to give me feedback. You can use the following contact information to communicate with me.
