@@ -27,10 +27,10 @@ def weight_PNMI(pre_lable1, pre_lable2, pre_lable3):
     pnmi1 = 1/2 * (nmi12+nmi13)
     pnmi2 = 1/2 * (nmi12+nmi23)
     pnmi3 = 1/2 * (nmi13+nmi23)
-    W_sum = pnmi1+pnmi2+pnmi3
-    w1 = pnmi1/W_sum
-    w2 = pnmi2/W_sum
-    w3 = pnmi3/W_sum
+    W_sum = (1-pnmi1)+(1-pnmi2)+(1-pnmi3)
+    w1 = (1-pnmi1)/W_sum
+    w2 = (1-pnmi1)/W_sum
+    w3 = (1-pnmi1)/W_sum
     return(np.array([w1,w2,w3]))
 
 def find_kcluster(k_min,k_max,sm1,sm2,sm3):
