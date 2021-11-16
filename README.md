@@ -96,7 +96,7 @@ Calculate ARI and V-measure in python. Load the corresponding functions in "Perf
      
 ## 5 Visualization of the co-association matrix
      
-Using UMAP and hierarchical clustering for visualization. Here, the co-association matrix obtained by scMelody for real data GSE87197 is provided as a in Demo_data file. Load the corresponding functions in "Visualization.r" in R environment.
+Using hierarchical clustering heatmap to visualize the weighted consensus matrix. Here, the co-association matrix obtained by scMelody for real data GSE87197 is provided as a in Demo_data file. Load the corresponding functions in "Visualization.r" in R environment.
 
 Using the co-association matrix for real dataset GSE87197 as an example.
 
@@ -104,13 +104,8 @@ Using the co-association matrix for real dataset GSE87197 as an example.
      
      co-associationMat <- read.csv(file = 'coassMat_GSE87197.csv', header=F)
      
-     UMAP_GSE87197 <- UMAP_plot(co-associationMat,cell_label)
-     
      HC_heatmapGSE87197 <- hc_heatmap(co-associationMat)
 
-UMAP visualization plot:
-
-![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/sc_bdP.png)
 
 Hierarchical clustering heatmap:
 
