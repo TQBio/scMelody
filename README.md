@@ -106,11 +106,9 @@ Using the co-association matrix for real dataset GSE87197 as an example.
      
      HC_heatmapGSE87197 <- hc_heatmap(co-associationMat)
 
-
-Hierarchical clustering heatmap:
-
 ![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/Heatmap_of_gse87197.png)
 
+For synthetic data generation, please refer to https://github.com/andreaskapou/Melissa
 
 If you have any questions in use, please feel free to give me feedback. You can use the following contact information to communicate with me.
 
