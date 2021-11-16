@@ -8,7 +8,7 @@ Here, we propose scMelody (Single-Cell Methylation data Ensemble cLustering base
 # Tutorial
 Overview: all source code for implementing scMelody is included in this project, source_code file contains all the functions that will be used, after loading these functions, scMelody can be run following the tutorials. Implementation of scMelody requires both R and python running environments, note the configuration in different environments.
 
-## 1 Extract methylation patterns of cells through multiple pairwise similarity measures
+## Step_1 Extract methylation patterns of cells through multiple pairwise similarity measures
 
 This step is implemented in the R environment and is mainly used to calculate cell-to-cell similarity matrices. Input your single-cell methylation dataset in the specified format. The recommended format is an R list, where each element is a dataframe containing methylation information for a single cell, organized as follows:
 
@@ -38,7 +38,7 @@ Run the following instruction to get the similarity matrix by parallel calculati
     res_cor <- do.call(cbind,results)
 
 
-## 2 Perform spectral clustering to generate initial results
+## Step_2 Perform spectral clustering to generate initial results
 
 This step is implemented in the python environment and is mainly used to produce spectral clustering assignments for different similarity matrices and estimate the optimal number of clusters. Note that scMelody also provides source code of implementing spectral clustering in R, see file Spectral_clusR.r in the scMelody.
 
@@ -72,7 +72,7 @@ Save the spectral clustering results of and the corresponding weights in the dat
     
     spc.to_csv('spc.csv')
     
-## 3 Ensemble clustering
+## Step_3 Ensemble clustering
 
 This step is implemented in the R environment and is mainly used to calculate the co-association matrix and the finall hierarchical clustering results.
   
