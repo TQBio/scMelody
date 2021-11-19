@@ -3,7 +3,7 @@ Here, we propose scMelody (Single-Cell Methylation data Ensemble cLustering base
 
 ## The overview of scMelody
 
-![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/scMeldoy-overview.png)
+![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/scMelody-main.png)
 
 # Tutorial
 Overview: all source code for implementing scMelody is included in this project, source_code file contains all the functions that will be used, after loading these functions, scMelody can be run following the tutorials. Implementation of scMelody requires both R and python running environments, note the configuration in different environments.
