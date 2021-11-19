@@ -72,6 +72,8 @@ Save the spectral clustering results of and the corresponding weights in the dat
     
     spc.to_csv('spc.csv')
     
+Note: You can download the original similarity matrices of dataset GSE87197 from the "Demo_data" file to reproduce the result or familiarize yourself with the algorithm flow.
+
 ## Step_3 Ensemble clustering
 
 This step is implemented in the R environment and is mainly used to calculate the co-association matrix and the finall hierarchical clustering results.
