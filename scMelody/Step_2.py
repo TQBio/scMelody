@@ -2,6 +2,22 @@ from sklearn.cluster import SpectralClustering
 from sklearn.cluster import AgglomerativeClustering
 from sklearn import metrics
 
+###Calculate the basic cell partitions using spectral clustering for each basic similarity measure
+###Input : the basic similarity matrices; the number of clusters
+###Output : the basic cell partitions
+def sc_pre(sm,C):
+    sc = SpectralClustering(n_clusters=C, n_neighbors=2*C, affinity='precomputed',n_init=100,assign_labels='kmeans')
+    out = sc.fit_predict(sm)
+    return out
+
+###Calculate the basic cell partitions using hierarchical clustering for each basic similarity measure
+###Input : the basic similarity matrices; the number of clusters
+###Output : the basic cell partitions
+def hc_pre(sm,C):
+    hc = AgglomerativeClustering(n_clusters=C, affinity='precomputed',linkage='complete')
+    out = hc.fit_predict(1-sm)
+    return out
+
 ###Calculate the weight of basic cell partitions based on the clustering separability
 ###Input : the basic similarity matrices and the respective inferred cell partitions
 ###Output : the weights for basic cell partitions
@@ -45,9 +61,9 @@ def COM(y):
             S[j][i]=S[i][j]
     return S
 
-###Calculate the resulting weighted consensus matrix to generate final cell partitions
+###Calculate the reconstructed similarity matrix to generate final cell partitions
 ###Input : the basic similarity matrices; number of clusters
-###Output : the weighted consensus matrix
+###Output : the reconstructed similarity matrix
 def scM(s1,s2,s3,C):
     c1 = sc_pre(s1,C)
     c2 = sc_pre(s2,C)
@@ -66,15 +82,26 @@ def scM(s1,s2,s3,C):
 ###Calculate the optimal number of clusters for the spectral clustering
 ###Input : possible maximum number of clusters; the basic similarity matrices
 ###Output : the number of clusters and the respective SI score
-def find_kcluster(k_max,sm1,sm2,sm3):
+def find_kspcluster(k_max,sm1,sm2,sm3):
     sil_list = []
     for k in range(2,k_max+1):
         out1 = sc_pre(sm1,k)
         out2 = sc_pre(sm2,k)
         out3 = sc_pre(sm3,k)
         sil1 = metrics.silhouette_score(1-sm1, out1, metric='precomputed')
-        sil2 = sil_score(sm2,out2)
-        sil3 = sil_score(sm3,out3)
+        sil2 = metrics.silhouette_score(1-sm2, out2, metric='precomputed')
+        sil3 = metrics.silhouette_score(1-sm3, out3, metric='precomputed')
         sil_sum = sil1+sil2+sil3
         sil_list.append([k,sil_sum])    
+    return(sil_list)
+
+###Calculate the final optimal number of clusters for the HC algorithm
+###Input : possible maximum number of clusters; the reconstructed similarity matrix
+###Output : the number of clusters and the respective SI score
+def find_kopcluster(k_max,co):
+    sil_list = []
+    for k in range(2,k_max+1):
+        out = hc_pre(co,k)
+        sil = metrics.silhouette_score(1-co, out, metric='precomputed')
+        sil_list.append([k,sil])    
     return(sil_list)
