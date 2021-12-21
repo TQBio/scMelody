@@ -68,15 +68,13 @@ Calculate ARI and V-measure in python. Load the corresponding functions in "Perf
 
 ## 4 Visualization of the reconstructed similarity matrix
      
-Using hierarchical clustering heatmap to visualize the weighted consensus matrix. Here, the co-association matrix obtained by scMelody for real data GSE87197 is provided as a in Demo_data file. Load the corresponding functions in "Visualization.r" in R environment.
+Using hierarchical clustering heatmap to visualize the reconstructed similarity matrix.
 
-Using the co-association matrix for real dataset GSE87197 as an example.
+Taking the real dataset GSE87197 as an example.
 
      cell_label <- read.csv(file = 'celllabels_GSE87197.csv')
-     
-     co-associationMat <- read.csv(file = 'coassMat_GSE87197.csv', header=F)
-     
-     HC_heatmapGSE87197 <- hc_heatmap(co-associationMat)
+        
+     HC_heatmapGSE87197 <- hc_heatmap(res_mat)
 
 ![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/Heatmap_Farlik2016.png)
 
