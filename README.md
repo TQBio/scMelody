@@ -8,7 +8,7 @@ Here, we present scMelody, which utilizes an enhanced consensus-based clustering
 # Tutorial
 Overview: all source code for implementing scMelody is included in this project, source_code file contains all the functions that will be used, after loading these functions, scMelody can be run following the tutorials. Implementation of scMelody requires both R and python running environments, note the configuration in different environments.
 
-## Step_1 Extract methylation patterns of cells through multiple pairwise similarity measures
+## 1 Extract methylation patterns of cells through multiple pairwise similarity measures
 
 This step is implemented in the R environment and is mainly used to calculate cell-to-cell similarity matrices. Input your single-cell methylation dataset in the specified format. The recommended format is an R list, where each element is a dataframe containing methylation information for a single cell, organized as follows:
 
@@ -38,7 +38,7 @@ We provide code that can run multithreaded in R environment to calculate the bas
     res_cor <- do.call(cbind,results)
 
 
-## Step_2 Perform spectral clustering to generate initial results
+## 2 Perform spectral clustering to generate initial results
 
 This step is implemented in the python environment and is mainly used to produce the estimated the optimal number of clusters and the resulting cell partitions. Note that scMelody also provides source code of implementing spectral clustering in R, see file Spectral_clusR.r in the scMelody.
 
