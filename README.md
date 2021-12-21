@@ -108,7 +108,7 @@ Using the co-association matrix for real dataset GSE87197 as an example.
      
      HC_heatmapGSE87197 <- hc_heatmap(co-associationMat)
 
-![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/Heatmap_of_gse87197.png)
+![image](https://github.com/TQBio/scMelody/blob/main/scMelody/pictures/Heatmap_Farlik2016.png)
 
 For the generation of synthetic datasets, please refer to https://github.com/andreaskapou/Melissa
 
