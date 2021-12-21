@@ -1,5 +1,5 @@
 # scMelody
-Here, we propose scMelody (Single-Cell Methylation data Ensemble cLustering based On the Diversity and separabilitY of cell-to-cell similarity patterns), which utilizes an ensemble clustering framework to link multiple methylation similarity patterns of cells for identifying cell types.
+Here, we present scMelody, which utilizes an enhanced consensus-based clustering model to reconstruct cell-to-cell methylation similarity patterns and identifies cell subpopulations with the leveraged information from multiple basic similarity measures.
 
 ## The overview of scMelody
 
