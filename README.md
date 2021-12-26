@@ -38,9 +38,9 @@ We provide code that can run multithreaded in R environment to calculate the bas
     res_cor <- do.call(cbind,results)
 
 
-## 2 Perform spectral clustering to generate initial results
+## 2 Perform scMelody to generate cell partitions
 
-This step is implemented in the python environment and is mainly used to produce the estimated the optimal number of clusters and the resulting cell partitions. Note that scMelody also provides source code of implementing spectral clustering in R, see file Spectral_clusR.r in the scMelody.
+This step is implemented in the python environment and is mainly used to produce the estimated number of clusters and the resulting cell partitions.
 
 Load all functions in "Step_2.py" and your pre-computed similarity matrices files in python environment; 
 
